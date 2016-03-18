@@ -13,4 +13,5 @@ def do_with_delimiter_array(array):
 
 def do_with_delimiter_field(field,column,array):
     global out_string
-    out_string = out_string +str(column)+':'+str(field)+'\n'
+    #out_string = out_string +str(column)+':'+str(field)+'\n'
+    out_string = out_string +str(field)+'|'
