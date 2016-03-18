@@ -5,7 +5,7 @@
 """
 import sys # to read argv from command line
 import delimiter_definitions as dd #You should define your own delimiter definitions.
-if( sys.argv[1] == sys.argv[2]):
+if( sys.argv[1] == sys.argv[2]): #Self output
     in_file = open(sys.argv[1],'r+b')
     in_file_str = in_file.read()
     in_file_array = in_file_str.split()
