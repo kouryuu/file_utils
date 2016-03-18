@@ -1,6 +1,6 @@
 #! /usr/bin/env python
 """" Program to do file parsing
-    made by Rodrigo R
+    made by Rodrigo R <https://github.com/kouryuu/>
     it depends on delimiter_definitions to define the row-based and the field based operations
 
 """
