@@ -15,7 +15,7 @@ Optionally you could output to the standard out by specifying `stdout` instead o
 #### Examples
 Some useful `delimiter_definitions.py` examples are:
 
-** Skip one line **
+**Skip one line**
 
 ```python
 out_string = "" # global variable used to encapsulate what will be written to the out file
