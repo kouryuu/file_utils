@@ -29,13 +29,17 @@ else:
     else:
         delimiter = sys.argv[3]
     if(sys.argv[2] != 'stdout'):
-        out_file = open(sys.argv[2],'w') #should I create it if it does not exist?
+        try:
+            out_file = open(sys.argv[2],'w') 
+        except IOError:
+            print "Could not open file: "+str(sys.argv[2])
+            raise
 
     for i in range(0,len(in_file_array)):
         delimiter_separated = in_file_array[i].split(delimiter)
         dd.do_with_delimiter_array(delimiter_separated)
-    print dd.out_string
-    if(sys.argv[2] != 'stdout'):
+    print dd.out_string # should it always print to the stdout? or should it only do it when specified stdout?
+    if(sys.argv[2] != 'stdout'): 
         out_file.write(dd.out_string)
         out_file.close()
     in_file.close()
