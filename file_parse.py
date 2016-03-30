@@ -30,17 +30,19 @@ else:
         delimiter = sys.argv[3]
     if(sys.argv[2] != 'stdout'):
         try:
-            out_file = open(sys.argv[2],'w') 
+            out_file = open(sys.argv[2],'w')
         except IOError:
             print "Could not open file: "+str(sys.argv[2])
             raise
 
     for i in range(0,len(in_file_array)):
-        delimiter_separated = in_file_array[i].split(delimiter)
+        if(delimiter == False): #in case we just want to return the whole line
+            delimiter_separated = in_file_array[i]
+        else:
+            delimiter_separated = in_file_array[i].split(delimiter)
         dd.do_with_delimiter_array(delimiter_separated)
     print dd.out_string # should it always print to the stdout? or should it only do it when specified stdout?
-    if(sys.argv[2] != 'stdout'): 
+    if(sys.argv[2] != 'stdout'):
         out_file.write(dd.out_string)
         out_file.close()
     in_file.close()
-    
