@@ -1,4 +1,5 @@
 #! /usr/bin/env python
+# -*- coding: utf-8 -*-
 """" Program to do file parsing
     made by Rodrigo R <https://github.com/kouryuu/>
     it depends on delimiter_definitions to define the row-based and the field based operations
@@ -23,7 +24,7 @@ else:
         in_file_str = in_file.read()
         in_file_array = in_file_str.split()
     if(len(sys.argv) == 3): #optionaly give the delimiter
-        delimiter = ','
+        delimiter = dd.delimiter 
     else:
         delimiter = sys.argv[3]
     out_file = open(sys.argv[2],'w') #should I create it if it does not exist?
