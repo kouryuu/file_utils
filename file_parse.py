@@ -16,7 +16,11 @@ If instead of out-file you specify stdout it will output it to stdout'''
     sys.exit()
 else:
     if( sys.argv[1] == sys.argv[2]): #Self output
-        in_file = open(sys.argv[1],'r+b')
+        try:
+            in_file = open(sys.argv[1],'r+b')
+        except IOError:
+            print "Could not open file: "+str(sys.argv[1])
+            raise
         in_file_str = in_file.read()
         in_file_array = in_file_str.split('\n')
         out_file = in_file
