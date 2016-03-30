@@ -16,7 +16,8 @@ Optionally you could output to the standard out by specifying `stdout` instead o
 Some useful `delimiter_definitions.py` examples are:
 
 ** Skip one line **
-``python
+
+```python
 out_string = "" # global variable used to encapsulate what will be written to the out file
 delimiter = False # by specifying False we force file_parse to return the whole line without splitting and making an array based on the delimiter
 counter = 0
