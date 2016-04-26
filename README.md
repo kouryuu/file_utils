@@ -5,6 +5,7 @@ Normally I would use *AWK* but I think Python could manage many fancy things and
 
 ## Utilities so far
 - file_parse
+- file_cut
 
 ### File parse
 Usage `file_parse [in-file] [out-file] (optional)[delimiter]` .
@@ -28,3 +29,7 @@ def do_with_delimiter_array(array):
       out_string += array+'\n'
     counter += 1
 ```
+
+### File cut
+A simple program to cut a file in several pieces.
+Usage `file_cut [file] [pieces]` .
