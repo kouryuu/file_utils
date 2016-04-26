@@ -25,19 +25,20 @@ else:
         in_file = open(file_name,'r+b')
     except IOError:
         raise Exception("Could not open file: "+file_name)
-
     print 'Counting the number of lines in the file'
     lines = int(subprocess.check_output(['wc','-l'],stdin=in_file))
+    in_file.close()
+    in_file = open(file_name,'r+b')
     piece_size = lines / pieces
     if(piece_size == 0):
         raise Exception("There are too many pieces, you should specify a smaller number than "+str(lines))
-    for i in range(1,pieces):
-        seq_filename = file_name+'p'+str(i)
-        out_file = open(,'w')
+    for i in range(1,pieces+1):
+        seq_filename = file_name+'.p'+str(i)
+        out_file = open(seq_filename,'w')
         for j in range(1,(piece_size)):
             if lines != 0:
-                line = in_file.readline()
-                out_file.write(line)
-        print "File "+i+" of "+pieces+" written. "+seq_filename
+                line_contents = in_file.readline()
+                out_file.write(line_contents)
+        print "File "+str(i)+" of "+str(pieces)+" written. "+seq_filename
         out_file.close()
     print "Done."
