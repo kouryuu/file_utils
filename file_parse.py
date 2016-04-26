@@ -7,11 +7,11 @@
 """
 
 import sys # to read argv from command line
-import delimiter_definitions as dd #You should define your own delimiter definitions.
+#import delimiter_definitions as dd #You should define your own delimiter definitions.
 
 if(len(sys.argv) <= 2): #Too few arguments protection
     print '''You need to specify both in the command line the arguments
-file_parse [in-file] [out-file] (optional)[delimiter]
+file_parse [in-file] [out-file] (optional)[delimiter][delimiter_definitions_file]
 If instead of out-file you specify stdout it will output it to stdout'''
     sys.exit()
 else:
@@ -32,6 +32,8 @@ else:
         delimiter = dd.delimiter
     else:
         delimiter = sys.argv[3]
+    #if(len(sys.argv) == 5):
+        #eval("import "+str(sys.argv[4])+" as dd") #not really safe should change to something better
     if(sys.argv[2] != 'stdout'):
         try:
             out_file = open(sys.argv[2],'w')
